@@ -51,7 +51,7 @@ public class VentanaFin extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Confirma compra");
+		JLabel lblNewLabel = new JLabel("Confirmar compra");
 		lblNewLabel.setBounds(329, 47, 193, 31);
 		contentPane.add(lblNewLabel);
 		
@@ -80,17 +80,30 @@ public class VentanaFin extends JFrame{
 				
 			} 
 		});
-		btnEntrar.setBounds(268, 300, 89, 23);
+		btnEntrar.setBounds(268, 300, 199, 23);
 		contentPane.add(btnEntrar);
 		
 	
+		JButton vuelta = new JButton("Atras");
+		vuelta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					VentanaCompra ventana =new VentanaCompra();
+					ventana.setVisible(true);
+					dispose();
+				
+			} 
+		});
+		vuelta.setBounds(90, 300, 90, 23);
+		contentPane.add(vuelta);
+		
+		
 	
 		
 		JLabel lblNewLabel_1 = new JLabel("Producto:");
 		lblNewLabel_1.setBounds(101, 144, 67, 14);
 		contentPane.add(lblNewLabel_1);
-		
-		txtCorreo = new JTextField(c.toString());
+		if(c!=null){	txtCorreo = new JTextField(c.toString());	}
+		else { txtCorreo = new JTextField("Error en la seleccion. Vuelva atrás.");}
 		txtCorreo.setBounds(268, 141, 250, 20);
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);

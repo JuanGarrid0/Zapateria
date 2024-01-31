@@ -81,6 +81,7 @@ public class VentanaInicio extends JFrame{
 					for (Cliente c : lista) {
 						if(c.getCorreo().equals(txtCorreo.getText())) {		 cliente =c;	}
 					}
+					//c es parametro
 					
 					if(cliente!=null) {
 						VentanaCompra ventana = new VentanaCompra();
