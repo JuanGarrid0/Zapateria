@@ -24,8 +24,8 @@ public class PropertiesFile {
         	}
         	//properties.setProperty("calzado", "");
             properties.setProperty("driver", "org.sqlite.JDBC");
-            properties.setProperty("file", "src/datos/database.db");
-            properties.setProperty("connection", "jdbc:sqlite:datos/database.db");
+            properties.setProperty("file", "C:\\Users\\Alumno\\git\\Trabajo\\src\\datos");
+            properties.setProperty("connection", "jdbc:sqlite:src/datos/database.db");
 
             outputStream = new FileOutputStream(PROPERTIES_FILE);
             properties.store(outputStream, null);
