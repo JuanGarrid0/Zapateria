@@ -17,6 +17,7 @@ import Clases.*;
 
 
 public class Files {
+	
 	GestorBD bd= new GestorBD();
 	
 	public void sincFile() {//Vuelca los maps sin ventas
