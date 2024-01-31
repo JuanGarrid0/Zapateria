@@ -26,7 +26,7 @@ public class VentanaCompra extends JFrame{
 	private JPanel contentPane;
 	private JTable table;
 	public String DatoCorreo;
-
+	public Cliente cliente=null;
 	/**
 	 * Launch the application.
 	 */
@@ -34,7 +34,7 @@ public class VentanaCompra extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCompra frame = new VentanaCompra(null);
+					VentanaCompra frame = new VentanaCompra();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,7 @@ public class VentanaCompra extends JFrame{
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCompra(Cliente cliente) {
+	public VentanaCompra() {
 		
 		GestorBD  bd= new GestorBD();		
 		
@@ -90,7 +90,7 @@ public class VentanaCompra extends JFrame{
 			
 				//Seleccion del calzado a comprar
 				if (calzado!=null && cliente!=null) {
-					VentanaFin ventana = new VentanaFin(calzado,cliente);
+					VentanaFin ventana = new VentanaFin();
 					ventana.setVisible(true);
 					dispose();
 				}

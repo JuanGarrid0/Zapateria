@@ -23,13 +23,14 @@ public class VentanaFin extends JFrame{
 	private JPasswordField txtContraseña;
 	private JTextField txtCorreo;
 	public static String DatoCorreo;
-
+	public Cliente cliente=null;
+	public Calzado c= null;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaFin frame = new VentanaFin(null,null);
+					VentanaFin frame = new VentanaFin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +40,7 @@ public class VentanaFin extends JFrame{
 	}
 
 	
-	public VentanaFin(Calzado c, Cliente cliente) {//Pasar por parametro el producto
+	public VentanaFin() {//Pasar por parametro el producto
 		Files ficha=new Files();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

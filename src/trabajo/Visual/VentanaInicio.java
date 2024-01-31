@@ -83,7 +83,7 @@ public class VentanaInicio extends JFrame{
 					}
 					
 					if(cliente!=null) {
-						VentanaCompra ventana = new VentanaCompra(cliente);
+						VentanaCompra ventana = new VentanaCompra();
 						ventana.setVisible(true);
 						dispose();
 					}

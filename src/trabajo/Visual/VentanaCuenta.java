@@ -62,7 +62,7 @@ public class VentanaCuenta extends JFrame{
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("CORREO:");
-		lblNewLabel_1.setBounds(63, 168, 49, 14);
+		lblNewLabel_1.setBounds(63, 168, 89, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("CONTRASEÑA");
@@ -95,7 +95,7 @@ public class VentanaCuenta extends JFrame{
 				lista.add(cliente);
 				bd.insertarCliente(lista);
 				if (cliente!=null) {
-					VentanaCompra ventana = new VentanaCompra(cliente);
+					VentanaCompra ventana = new VentanaCompra();
 					ventana.setVisible(true);
 					dispose();
 				}
