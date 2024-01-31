@@ -1,10 +1,14 @@
 package trabajo.Database;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import Clases.*;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.lang.invoke.StringConcatFactory;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -20,7 +24,7 @@ import java.util.Properties;
 
 
 public class GestorBD {
-	private final String PROPERTIES_FILE = "Datos/properties";
+	private final String PROPERTIES_FILE = "src/datos/base.properties";
 
 	private Properties properties;
 	private String driverName;
@@ -180,6 +184,34 @@ public class GestorBD {
 		}		
 		
 		return c;
+	}
+	
+	public boolean buscarUsuarioRegistrado (String correo, String contrasena) {
+		boolean busqueda_usuario = false;
+		final ResultSet resultado;
+
+		String sql="SELECT CORREO, CONTRASENA FROM CLIENTE WHERE CORREO = ? AND CONTRASEÑA = ?";
+		
+		try (Connection con = DriverManager.getConnection(connectionString);
+			     PreparedStatement pStmt = con.prepareStatement(sql)) {
+			pStmt.setString(1, correo);
+			pStmt.setString(2, contrasena);
+			
+			resultado = pStmt.executeQuery();
+			
+			if(resultado.next()) {
+				busqueda_usuario = true;
+			}else {
+				busqueda_usuario = false;
+			}
+			
+			con.close();
+			
+		} catch (Exception ex) {
+			logger.warning(String.format("Error, cliente no encontrado: %s", ex.getMessage()));						
+		}	
+		
+		return busqueda_usuario;
 	}
 	
 	

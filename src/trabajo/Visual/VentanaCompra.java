@@ -1,5 +1,7 @@
 package trabajo.Visual;
 
-public class VentanaCompra {
+import javax.swing.JFrame;
+
+public class VentanaCompra extends JFrame{
 
 }
