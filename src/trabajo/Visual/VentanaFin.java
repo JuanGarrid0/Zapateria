@@ -69,6 +69,7 @@ public class VentanaFin extends JFrame{
 					DatoCorreo = txtCorreo.getText();
 					//Envio correo
 					String DatoCorreo="Le agradecemos la compra del nuestras zapatillas "+c.getNombre()+" el precio total de la factura sera de "+c.getPrecio();
+					ProgressHilo hilo = new ProgressHilo();
 					try {
 						Mail.sendMail(cliente.getCorreo(), "Compra", DatoCorreo);
 						ficha.uploadFile(c.getCodigo());
@@ -90,6 +91,7 @@ public class VentanaFin extends JFrame{
 					VentanaCompra ventana =new VentanaCompra();
 					ventana.setVisible(true);
 					dispose();
+					
 				
 			} 
 		});
