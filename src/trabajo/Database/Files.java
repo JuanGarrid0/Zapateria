@@ -17,15 +17,17 @@ import Clases.*;
 
 
 public class Files {
+	GestorBD bd= new GestorBD();
 	
-	public void sincFile(List<Calzado> l) {//Vuelca los maps sin ventas
+	public void sincFile() {//Vuelca los maps sin ventas
+		List<Calzado> cz= new ArrayList<>(bd.getCalzadoList());
 		Map<Integer, Integer> mapa = new HashMap<>();//codigo, cantidad
 			FileWriter fichero = null;
 		    PrintWriter pw = null;
 		    try{fichero = new FileWriter("src\\Datos\\Ventas.txt");
 		        pw = new PrintWriter(fichero);
 		       
-		        for (Calzado p : l) { mapa.put(p.getCodigo(), 0);        }		
+		        for (Calzado p : cz) { mapa.put(p.getCodigo(), 0);        }		
 		        
 		        for(Map.Entry<Integer, Integer> entry : mapa.entrySet()) {    pw.print(entry+"\n");	        }
 
@@ -55,11 +57,11 @@ public class Files {
 	public void uploadFile(int codigo) {//actualiza los maps
 		//read file and get X vendidos
 		String fileName="src\\Datos\\Ventas.txt";
-		Map<Integer, Integer> mapa= new HashMap<>(readFile());	//lista de mapas sin actualizar
 		FileWriter fichero=null;
 		PrintWriter pw=null;
 		
 		//lectura con el readFile y editar con el get
+		Map<Integer, Integer> mapa= new HashMap<>(readFile());	//lista de mapas sin actualizar
 		mapa.put(codigo, mapa.get(codigo)+1);
 
 		 try{fichero = new FileWriter(fileName);
