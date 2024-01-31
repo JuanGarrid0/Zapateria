@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.validator.PublicClassValidator;
-
+import Funciones.*;
 public class TestsClases {
     
 	Cliente c1= new Cliente("Jony", "proyectodefinitivoprogram@gmail.com", "5342");
@@ -43,4 +43,5 @@ public class TestsClases {
 		assertTrue(z1.getCodigo() < z2.getCodigo());
 	}
 
+	
 }
