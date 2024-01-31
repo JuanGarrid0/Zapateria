@@ -25,14 +25,14 @@ public class TestsClases {
 	
 	@Test
 	public void testPrecio() {
-		assertEquals(z1.getPrecio(),z2.getPrecio());
+		assertNotEquals(z1.getPrecio(),z2.getPrecio(),0.01);
 		
 	}
 	@Test
 	public void testMail() {
 		String[] splitString= c1.getCorreo().split("@");
 		assertEquals(splitString.length,2);
-		assertEquals(splitString[1].equals("@gmail.com"),0);
+		assertTrue(splitString[1].equals("gmail.com"));
 		
 	}
 
@@ -46,7 +46,7 @@ public class TestsClases {
 	public void recursividadTest() {
 		
 		int password= Integer.parseInt(c1.getContrasena());
-		assertFalse(Recursividad.capicua(password));
+		assertTrue(Recursividad.capicua(password));
 		
 	}
 
