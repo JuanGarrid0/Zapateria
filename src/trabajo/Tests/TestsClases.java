@@ -11,6 +11,7 @@ public class TestsClases {
 	Cliente c1= new Cliente("Jony", "proyectodefinitivoprogram@gmail.com", "5342");
 	Calzado z1 = new Calzado(01, "Sevilla", 8.99, "Rojo");
 	Calzado z2 = new Calzado(02, "Barcelona", 9.99, "Azul");
+	Recursividad recursividad=new Recursividad();
 	
 	
 	@Test
@@ -41,6 +42,13 @@ public class TestsClases {
 	public void testCode() {
 		
 		assertTrue(z1.getCodigo() < z2.getCodigo());
+	}
+	@Test
+	public void recursividadTest() {
+		
+		int password= Integer.parseInt(c1.getContrasena());
+		assertFalse(Recursividad.capicua(password));
+		
 	}
 
 	

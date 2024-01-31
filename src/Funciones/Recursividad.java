@@ -1,17 +1,31 @@
 package Funciones;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+import org.junit.validator.PublicClassValidator;
 
 public class Recursividad {
 
 	public static void main(String[] args){
 	    //Pasar por parametro contrasena
 		//Si el numero es capicua, no es robusto
-	    int num = 2444;
+		
+		
+	    int num = 444344;
 	    if (simetric(num)) {
-	            System.out.println("No es robusto");}
+	            System.out.println("Es capicua");}
 	        else {
-	            System.out.println("Es robusto");}
+	            System.out.println("No es capicua");}
+	}
+	
+	
+	public static boolean capicua(int contrasena) {
+		 if (simetric(contrasena)) {
+	            System.out.println("No es robusto");
+	            return false;}
+	        else {
+	            System.out.println("Es robusto");
+	            return true;}		
 	}
 	
 	static int digitos(int num){
