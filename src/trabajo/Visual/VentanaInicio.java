@@ -3,6 +3,9 @@ import Clases.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import trabajo.Database.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -70,11 +73,21 @@ public class VentanaInicio extends JFrame{
 				boolean usuario = bd.buscarUsuarioRegistrado(txtCorreo.getText(),txtContraseña.getText());
 				
 				if(usuario) {
+					Cliente cliente=null;
 					JOptionPane.showMessageDialog(null, "Bienvenido ");
 					DatoCorreo = txtCorreo.getText();
-					VentanaCompra ventana = new VentanaCompra();
-					ventana.setVisible(true);
-					dispose();
+					List<Cliente> lista = new ArrayList<>(bd.getClientesList());
+					
+					for (Cliente c : lista) {
+						if(c.getCorreo().equals(txtCorreo.getText())) {		 cliente =c;	}
+					}
+					
+					if(cliente!=null) {
+						VentanaCompra ventana = new VentanaCompra(cliente);
+						ventana.setVisible(true);
+						dispose();
+					}
+					
 				}else {
 					JOptionPane.showMessageDialog(null, "El usuario es incorrecto");
 					VentanaCuenta v = new VentanaCuenta();
@@ -88,6 +101,7 @@ public class VentanaInicio extends JFrame{
 		
 	
 	
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("CORREO:");
 		lblNewLabel_1.setBounds(101, 144, 67, 14);

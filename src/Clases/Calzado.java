@@ -24,6 +24,12 @@ public class Calzado {
 
 
 
+	@Override
+	public String toString() {
+		return "Calzado [Codigo=" + Codigo + ", Nombre=" + Nombre + ", Precio=" + Precio + ", Color=" + Color + "]";
+	}
+
+
 	public int getCodigo() {
 		return Codigo;
 	}
