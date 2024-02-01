@@ -108,6 +108,25 @@ public class VentanaCompra extends JFrame{
 				return l;
 			}
 		});
+		
+		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+				Component comp =  super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if (isSelected) {
+					comp.setBackground(Color.cyan);
+				}else {
+					if (row%2==0) {
+						comp.setBackground( Color.LIGHT_GRAY );
+					} else {
+						comp.setBackground( Color.WHITE );
+					}				}
+				
+				
+				
+				return comp;		
+			}
+		});
 		table.setRowHeight(30);
 		
 		
