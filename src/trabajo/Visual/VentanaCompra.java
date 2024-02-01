@@ -76,6 +76,20 @@ public class VentanaCompra extends JFrame{
 
 		scrollPane.setViewportView(table);
 		
+		modelo.setRowCount(0);
+		List<Calzado> zp = bd.getCalzadoList();
+		if (zp != null) {
+			for (Calzado p : zp) {
+				Object [] fila = new Object[8];
+				fila[0] = p.getCodigo();
+				fila[1] = p.getNombre();
+				fila[2] = p.getPrecio();
+				fila[3] = p.getColor();
+				
+				modelo.addRow(fila);
+			}
+		}
+		
 		JButton btnNewButton = new JButton("Comprar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
