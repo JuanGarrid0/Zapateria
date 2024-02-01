@@ -1,12 +1,23 @@
 package trabajo.Visual;
 import Clases.*;
+
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import trabajo.Database.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -43,6 +54,9 @@ public class VentanaInicio extends JFrame{
 	 * Create the frame.
 	 */
 	public VentanaInicio() {
+	     
+	    
+		
 		
 		GestorBD bd = new GestorBD();
 		
@@ -101,7 +115,6 @@ public class VentanaInicio extends JFrame{
 		contentPane.add(btnEntrar);
 		
 	
-	
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("CORREO:");
@@ -113,4 +126,6 @@ public class VentanaInicio extends JFrame{
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);
 	}
+	
+	
 }
