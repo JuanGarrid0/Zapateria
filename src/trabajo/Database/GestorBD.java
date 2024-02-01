@@ -190,7 +190,7 @@ public class GestorBD {
 		boolean busqueda_usuario = false;
 		final ResultSet resultado;
 
-		String sql="SELECT CORREO, CONTRASENA FROM CLIENTE WHERE CORREO = ? AND CONTRASEÑA = ?";
+		String sql="SELECT correo, contrasena FROM Cliente WHERE correo = ? AND contrasena = ?";
 		
 		try (Connection con = DriverManager.getConnection(connectionString);
 			     PreparedStatement pStmt = con.prepareStatement(sql)) {
