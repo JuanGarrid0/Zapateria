@@ -1,6 +1,8 @@
 package trabajo.Visual;
 import Clases.*;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,7 +18,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import trabajo.Database.*;
 import Funciones.*;
@@ -89,6 +94,23 @@ public class VentanaCompra extends JFrame{
 				modelo.addRow(fila);
 			}
 		}
+		
+		
+		
+		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+				JLabel l = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if (row%2==0) {
+					l.setBackground( Color.LIGHT_GRAY );
+				} else {
+					l.setBackground( Color.WHITE );
+				}
+				return l;
+			}
+		});
+		table.setRowHeight(30);
+		
+		
 		
 		JButton btnNewButton = new JButton("Comprar");
 		btnNewButton.addActionListener(new ActionListener() {
