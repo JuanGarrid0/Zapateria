@@ -46,7 +46,7 @@ public class Files {
 		try (Scanner scanner = new Scanner(new File("src\\Datos\\Ventas.txt"))) {
             while (scanner.hasNextLine()) {
                 String linea = scanner.nextLine();
-                String[] trozo= linea.split(":");
+                String[] trozo= linea.split("=");
                 l.put(Integer.valueOf(trozo[0]) ,Integer.valueOf(trozo[1]));      
             }
         } catch (IOException e) {

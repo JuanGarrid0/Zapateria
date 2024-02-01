@@ -53,7 +53,7 @@ public class VentanaCompra extends JFrame{
 	 * Create the frame.
 	 */
 	public VentanaCompra(Cliente cliente) {
-		
+		Files files = new Files();
 		GestorBD  bd= new GestorBD();		
 		
 		
@@ -146,6 +146,8 @@ public class VentanaCompra extends JFrame{
 				//Seleccion del calzado a comprar
 				if (calzado!=null && cliente!=null) {
 					VentanaFin ventana = new VentanaFin(cliente, calzado);
+					
+					
 					ventana.setVisible(true);
 					dispose();
 				}

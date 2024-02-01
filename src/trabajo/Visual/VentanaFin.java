@@ -1,6 +1,7 @@
 package trabajo.Visual;
 import Clases.*;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,14 +76,17 @@ public class VentanaFin extends JFrame{
 					//Envio correo
 					String DatoCorreo="Le agradecemos la compra del nuestras zapatillas "+calzado.getNombre()+" el precio total de la factura sera de "+calzado.getPrecio();
 					ProgressHilo hilo = new ProgressHilo();
+				    contentPane.add( new ProgressHilo(),BorderLayout.CENTER );
 					try {
 						Mail.sendMail(cliente.getCorreo(), "Compra", DatoCorreo);
-						ficha.uploadFile(calzado.getCodigo());
+						try {					
+							ficha.uploadFile(calzado.getCodigo());
+						} catch (Exception e2) {
+						}
 					} catch (MessagingException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					dispose();
 				
 			} 
 		});

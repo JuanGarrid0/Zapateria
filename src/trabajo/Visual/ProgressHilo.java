@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 		  JTextField texto;
 		  JProgressBar barra;
 		  
-		  public ProgressHilo() {
+		  public  ProgressHilo() {
 		    setLayout( new BorderLayout() );
 		    
 		    texto = new JTextField();
@@ -99,7 +99,7 @@ import javax.swing.JTextField;
 		    }
 		  }
 		  
-		  public static void main( String args[] ) {
+		/*  public static void main( String args[] ) {
 		    JFrame frame = new JFrame( "Tutorial de Java, Swing" );
 		    
 		    frame.addWindowListener( new WindowAdapter() {
@@ -111,6 +111,6 @@ import javax.swing.JTextField;
 		    frame.getContentPane().add( new ProgressHilo(),BorderLayout.CENTER );
 		    frame.setSize( 400,150 );
 		    frame.setVisible( true );
-		  }
+		  }*/
 		}
 

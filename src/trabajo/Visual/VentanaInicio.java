@@ -1,6 +1,7 @@
 package trabajo.Visual;
 import Clases.*;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -57,8 +58,10 @@ public class VentanaInicio extends JFrame{
 	     
 	    
 		
-		
+		Files files= new Files();
+		files.sincFile();
 		GestorBD bd = new GestorBD();
+		
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -100,6 +103,8 @@ public class VentanaInicio extends JFrame{
 					//c es parametro
 					
 					if(cliente!=null) {
+						
+
 						VentanaCompra ventana = new VentanaCompra(cliente);
 						ventana.setVisible(true);
 						dispose();
