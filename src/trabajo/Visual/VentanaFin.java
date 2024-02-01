@@ -76,7 +76,8 @@ public class VentanaFin extends JFrame{
 					//Envio correo
 					String DatoCorreo="Le agradecemos la compra del nuestras zapatillas "+calzado.getNombre()+" el precio total de la factura sera de "+calzado.getPrecio();
 					ProgressHilo hilo = new ProgressHilo();
-				    contentPane.add( new ProgressHilo(),BorderLayout.CENTER );
+					hilo.setVisible(true);
+					
 					try {
 						Mail.sendMail(cliente.getCorreo(), "Compra", DatoCorreo);
 						try {					

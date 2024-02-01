@@ -1,6 +1,7 @@
 package trabajo.Visual;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -14,26 +15,44 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 
-	public class ProgressHilo extends JPanel {
+	public class ProgressHilo extends JFrame {
+		
 		  Thread hilo;
 		  Object objeto = new Object();
 		  boolean pideParar = false;
 		  JTextField texto;
 		  JProgressBar barra;
+		  JPanel panel;
+		  
+		  public static void main( String args[] ) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							ProgressHilo frame = new ProgressHilo();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			  }
 		  
 		  public  ProgressHilo() {
-		    setLayout( new BorderLayout() );
-		    
+			panel = new JPanel();
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setBounds(100, 100, 731, 517);
+			panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		    panel.setLayout( new GridLayout(0,1) );
+			setContentPane(panel);
 		    texto = new JTextField();
 		    add( texto,BorderLayout.NORTH );
 		    
-		    JPanel panelInferior = new JPanel();
 		    barra = new JProgressBar();
-		    panelInferior.setLayout( new GridLayout(0,1) );
-		    panelInferior.add( barra );
-		    panelInferior.add( new JLabel( "Cargando..." ) );
+		    panel.add( barra );
+		    panel.add( new JLabel( "ENVIANDO CORREO..." ) );
 
 		    JPanel panelBotones = new JPanel();
 		    JButton botonArranque = new JButton( "Arrancar" );
@@ -54,8 +73,7 @@ import javax.swing.JTextField;
 		      }
 		    } );
 		    
-		    panelInferior.add( panelBotones );
-		    add( panelInferior,BorderLayout.SOUTH );
+		    panel.add( panelBotones );
 		  } 
 		    
 		  public void iniciaCuenta() {
@@ -70,6 +88,7 @@ import javax.swing.JTextField;
 		    synchronized( objeto ) {
 		      pideParar = true;
 		      objeto.notify();
+		      
 		    }
 		  } 
 
@@ -85,6 +104,15 @@ import javax.swing.JTextField;
 
 		      for (int i=min; i <= max; i++ ) {
 			barra.setValue( i );
+			if(100==barra.getValue()) {
+				try {
+					texto.setText("CORREO ENVIADO");
+					sleep(10000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				dispose();
+			}
 			texto.setText( ""+i );
 			synchronized( objeto ) {
 			  if( pideParar )
@@ -99,18 +127,7 @@ import javax.swing.JTextField;
 		    }
 		  }
 		  
-		/*  public static void main( String args[] ) {
-		    JFrame frame = new JFrame( "Tutorial de Java, Swing" );
-		    
-		    frame.addWindowListener( new WindowAdapter() {
-		      public void windowClosing( WindowEvent evt ) {
-			System.exit( 0 );
-		      }
-		    });
-		    
-		    frame.getContentPane().add( new ProgressHilo(),BorderLayout.CENTER );
-		    frame.setSize( 400,150 );
-		    frame.setVisible( true );
-		  }*/
+		
 		}
+	
 
