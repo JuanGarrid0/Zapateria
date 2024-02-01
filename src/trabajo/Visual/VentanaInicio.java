@@ -92,13 +92,15 @@ public class VentanaInicio extends JFrame{
 					DatoCorreo = txtCorreo.getText();
 					List<Cliente> lista = new ArrayList<>(bd.getClientesList());
 					
+
+					
 					for (Cliente c : lista) {
-						if(c.getCorreo().equals(txtCorreo.getText())) {		 cliente =c;	}
+						if(c.getCorreo().equals(txtCorreo.getText())) {		 cliente =c; 		}
 					}
 					//c es parametro
 					
 					if(cliente!=null) {
-						VentanaCompra ventana = new VentanaCompra();
+						VentanaCompra ventana = new VentanaCompra(cliente);
 						ventana.setVisible(true);
 						dispose();
 					}

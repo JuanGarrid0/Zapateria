@@ -6,7 +6,7 @@ public class Cliente {
 	  private String Contrasena;
 	 
 	  
-	public Cliente(String nombre, String correo, String contrasena) {
+	public Cliente(String correo, String contrasena, String nombre) {
 		super();
 		Nombre = nombre;
 		Correo = correo;

@@ -95,7 +95,7 @@ public class VentanaCuenta extends JFrame{
 				lista.add(cliente);
 				bd.insertarCliente(lista);
 				if (cliente!=null) {
-					VentanaCompra ventana = new VentanaCompra();
+					VentanaCompra ventana = new VentanaCompra(cliente);
 					ventana.setVisible(true);
 					dispose();
 				}

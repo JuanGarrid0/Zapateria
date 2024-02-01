@@ -31,15 +31,16 @@ public class VentanaCompra extends JFrame{
 	private JPanel contentPane;
 	private JTable table;
 	public String DatoCorreo;
-	public Cliente cliente=null;
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Cliente cliente= new Cliente();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaCompra frame = new VentanaCompra();
+					VentanaCompra frame = new VentanaCompra(cliente);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +52,7 @@ public class VentanaCompra extends JFrame{
 	/**
 	 * Create the frame.
 	 */
-	public VentanaCompra() {
+	public VentanaCompra(Cliente cliente) {
 		
 		GestorBD  bd= new GestorBD();		
 		
@@ -114,7 +115,7 @@ public class VentanaCompra extends JFrame{
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 				Component comp =  super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				if (isSelected) {
-					comp.setBackground(Color.cyan);
+					comp.setBackground(Color.RED);
 				}else {
 					if (row%2==0) {
 						comp.setBackground( Color.LIGHT_GRAY );
@@ -136,8 +137,7 @@ public class VentanaCompra extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				Calzado calzado =null;
 				int SelectedRow = table.getSelectedRow();
-				int SelectedColumn = table.getSelectedColumn();
-				String codigo = modelo.getValueAt(SelectedRow, SelectedColumn).toString();
+				String codigo = modelo.getValueAt(SelectedRow, 0).toString();
 				int code = Integer.valueOf(codigo);
 				List<Calzado> lista = new ArrayList<>(bd.getCalzadoList());
 				for (Calzado c : lista) {		if(code == c.getCodigo()) {	calzado=c;	}		}
@@ -145,7 +145,7 @@ public class VentanaCompra extends JFrame{
 			
 				//Seleccion del calzado a comprar
 				if (calzado!=null && cliente!=null) {
-					VentanaFin ventana = new VentanaFin();
+					VentanaFin ventana = new VentanaFin(cliente, calzado);
 					ventana.setVisible(true);
 					dispose();
 				}
