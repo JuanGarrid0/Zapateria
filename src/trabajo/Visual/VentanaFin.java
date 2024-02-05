@@ -29,7 +29,7 @@ import trabajo.Database.*;
 
 public class VentanaFin extends JFrame{
 	private JPanel contentPane;
-	private JTextArea txtContraseña;
+	private JTextArea txtContrasena;
 	private JTextArea txtCorreo;
 	private JComboBox<Calzado> productosBox;
 	
@@ -70,11 +70,11 @@ public class VentanaFin extends JFrame{
 		lblNewLabel_2.setBounds(101, 210, 80, 31);
 		contentPane.add(lblNewLabel_2);
 		
-		txtContraseña = new JTextArea();
-		if(cliente!=null){	txtContraseña = new JTextArea(cliente.getCorreo());	}
-		else { txtContraseña = new JTextArea("Error.");}
-		txtContraseña.setBounds(168, 215, 193, 20);
-		contentPane.add(txtContraseña);
+		txtContrasena = new JTextArea();
+		if(cliente!=null){	txtContrasena = new JTextArea(cliente.getCorreo());	}
+		else { txtContrasena = new JTextArea("Error.");}
+		txtContrasena.setBounds(168, 215, 193, 20);
+		contentPane.add(txtContrasena);
 		
 		
 		

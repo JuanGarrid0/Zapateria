@@ -24,7 +24,7 @@ public class VentanaCuenta extends JFrame{
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtCorreo;
-	private JPasswordField txtContraseña;
+	private JPasswordField txtContrasena;
 
 	/**
 	 * Launch the application.
@@ -83,15 +83,15 @@ public class VentanaCuenta extends JFrame{
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);
 		
-		txtContraseña = new JPasswordField();
-		txtContraseña.setBounds(151, 228, 96, 20);
-		contentPane.add(txtContraseña);
+		txtContrasena = new JPasswordField();
+		txtContrasena.setBounds(151, 228, 96, 20);
+		contentPane.add(txtContrasena);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<Cliente> lista = new ArrayList<>(bd.getClientesList());
-				Cliente cliente= new Cliente(txtCorreo.getText(),txtContraseña.getText(),txtNombre.getText());
+				Cliente cliente= new Cliente(txtCorreo.getText(),txtContrasena.getText(),txtNombre.getText());
 				lista.add(cliente);
 				bd.insertarCliente(lista);
 				if (cliente!=null) {

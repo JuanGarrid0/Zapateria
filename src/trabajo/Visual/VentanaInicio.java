@@ -31,7 +31,7 @@ import javax.swing.border.EmptyBorder;
 
 public class VentanaInicio extends JFrame{
 	private JPanel contentPane;
-	private JPasswordField txtContraseña;
+	private JPasswordField txtContrasena;
 	private JTextField txtCorreo;
 	public static String DatoCorreo;
 
@@ -80,14 +80,14 @@ public class VentanaInicio extends JFrame{
 		lblNewLabel_2.setBounds(101, 210, 180, 31);
 		contentPane.add(lblNewLabel_2);
 		
-		txtContraseña = new JPasswordField();
-		txtContraseña.setBounds(268, 215, 193, 20);
-		contentPane.add(txtContraseña);
+		txtContrasena = new JPasswordField();
+		txtContrasena.setBounds(268, 215, 193, 20);
+		contentPane.add(txtContrasena);
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean usuario = bd.buscarUsuarioRegistrado(txtCorreo.getText(),txtContraseña.getText());
+				boolean usuario = bd.buscarUsuarioRegistrado(txtCorreo.getText(),txtContrasena.getText());
 				
 				if(usuario) {
 					Cliente cliente=null;
