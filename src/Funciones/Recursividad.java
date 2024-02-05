@@ -9,13 +9,13 @@ public class Recursividad {
 	public static void main(String[] args){
 	    //Pasar por parametro contrasena
 		//Si el numero es capicua, no es robusto
-		
+		/*
 		
 	    int num = 444344;
 	    if (simetric(num)) {
 	            System.out.println("Es capicua");}
 	        else {
-	            System.out.println("No es capicua");}
+	            System.out.println("No es capicua");}*/
 	}
 	
 	

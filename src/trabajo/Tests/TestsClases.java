@@ -8,7 +8,7 @@ import org.junit.validator.PublicClassValidator;
 import Funciones.*;
 public class TestsClases {
     
-	Cliente c1= new Cliente("Jony", "proyectodefinitivoprogram@gmail.com", "535535");
+	Cliente c1= new Cliente("proyectodefinitivoprogram@gmail.com", "535535","Jony");
 	Calzado z1 = new Calzado(01, "Sevilla", 8.99, "Rojo");
 	Calzado z2 = new Calzado(02, "Barcelona", 9.99, "Azul");
 	Recursividad recursividad=new Recursividad();
@@ -31,7 +31,7 @@ public class TestsClases {
 	@Test
 	public void testMail() {
 		String[] splitString= c1.getCorreo().split("@");
-		assertEquals(splitString.length,2);
+		assertEquals(2, splitString.length);
 		assertTrue(splitString[1].equals("gmail.com"));
 		
 	}

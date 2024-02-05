@@ -8,9 +8,9 @@ public class Cliente {
 	  
 	public Cliente(String correo, String contrasena, String nombre) {
 		super();
-		Nombre = nombre;
 		Correo = correo;
 		Contrasena = contrasena;
+		Nombre = nombre;
 		
 	}
 

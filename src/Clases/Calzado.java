@@ -15,6 +15,7 @@ public class Calzado {
 		Precio = precio;
 		Color = color;
 		
+		
 	}
 
 
@@ -68,7 +69,7 @@ public class Calzado {
 	public void setColor(String color) {
 		Color = color;
 	}
-
+	
 
 	
 
