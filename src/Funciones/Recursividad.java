@@ -7,7 +7,7 @@ import org.junit.validator.PublicClassValidator;
 public class Recursividad {
 
 	public static void main(String[] args){
-	    //Pasar por parametro contrasena
+	    //Pasar por parametro contrasena, borrar esto mas tarde
 		//Si el numero es capicua, no es robusto
 		/*
 		

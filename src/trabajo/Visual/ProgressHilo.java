@@ -77,7 +77,7 @@ import javax.swing.plaf.basic.BasicProgressBarUI;
 		    	
 		    	
 		    });
-		    barra.setForeground(Color.MAGENTA);
+		    barra.setForeground(Color.cyan);
 		    barra.setIndeterminate(true);
 
 
