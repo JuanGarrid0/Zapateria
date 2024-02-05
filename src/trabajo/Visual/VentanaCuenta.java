@@ -109,8 +109,21 @@ public class VentanaCuenta extends JFrame{
 				
 			}
 		});
-		btnGuardar.setBounds(251, 352, 89, 23);
+		btnGuardar.setBounds(350, 300, 150, 40);
 		contentPane.add(btnGuardar);
+		
+		JButton btnBack = new JButton("Atras");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			VentanaInicio ventana = new VentanaInicio();
+			ventana.setVisible(true);
+			dispose();
+				
+				
+			}
+		});
+		btnBack.setBounds(150, 300, 150, 40);
+		contentPane.add(btnBack);
 		
 		
 	}
