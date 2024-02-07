@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import Clases.*;
 
@@ -19,7 +20,7 @@ import Clases.*;
 public class Files {
 	
 	GestorBD bd= new GestorBD();
-	
+
 	public void sincFile() {//Vuelca los maps sin ventas
 		List<Calzado> cz= new ArrayList<>(bd.getCalzadoList());
 		Map<Integer, Integer> mapa = new HashMap<>();//codigo, cantidad
@@ -38,7 +39,8 @@ public class Files {
 		       try{if (null != fichero)
 		          fichero.close();
 		       }catch (Exception e2) {
-		          e2.printStackTrace();}}
+			        e2.printStackTrace();
+}}
 	}
 	
 	public Map<Integer,Integer> readFile() {//lee los maps
@@ -50,7 +52,7 @@ public class Files {
                 l.put(Integer.valueOf(trozo[0]) ,Integer.valueOf(trozo[1]));      
             }
         } catch (IOException e) {
-            e.printStackTrace();
+	        e.printStackTrace();
         }
 		return l;
 	}
@@ -74,7 +76,8 @@ public class Files {
 	       try{if (null != fichero)
 	          fichero.close();
 	       }catch (Exception e2) {
-	          e2.printStackTrace();}}
+		        e2.printStackTrace();
+}}
 		
 		
 		

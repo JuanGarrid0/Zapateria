@@ -5,11 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class PropertiesFile {
 	
 	final static String PROPERTIES_FILE = "src/datos/base.properties";
-	
+
 	public static void actualizarPropiedades() {
 		
         Properties properties = new Properties();
@@ -32,7 +33,7 @@ public class PropertiesFile {
 
             System.out.println("Datos actualizados correctamente");
         } catch (IOException ex) {
-            ex.printStackTrace();
+	        ex.printStackTrace();
             System.out.println("Error al actualizar los datos");
         } finally {
             try {
@@ -43,7 +44,7 @@ public class PropertiesFile {
                     outputStream.close();
                 }
             } catch (IOException ex) {
-                ex.printStackTrace();
+		        ex.printStackTrace();
             }
         }
     }
@@ -62,13 +63,13 @@ public class PropertiesFile {
             properties.load(inputStream);
             
         } catch (IOException e) {
-            e.printStackTrace();
+	        e.printStackTrace();
         } finally {
             if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+    		        e.printStackTrace();
                 }
             }
         }
